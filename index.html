@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>شاپ دستبند</title>
+<style>
+    body { font-family: sans-serif; background: #f4f4f4; margin: 0; padding: 20px; }
+    .container { max-width: 900px; margin: auto; }
+    h1 { text-align: center; margin-bottom: 30px; }
+
+    .products { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+    .card {
+        background: white; padding: 15px; border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1); text-align: center;
+    }
+    .card img { width: 100%; border-radius: 8px; }
+    .card button {
+        margin-top: 10px; width: 100%; padding: 8px;
+        background: #007bff; border: none; color: white; border-radius: 6px;
+        cursor: pointer;
+    }
+
+    .cart-box {
+        background: white; padding: 15px; margin-top: 30px; border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>فروشگاه&nbsp;</h1>
+
+    <div class="products">
+
+      <div class="card">
+            <img src="../Pictures/Camera Roll/WIN_20251008_01_16_41_Pro.jpg" width="300" height="170" alt=""/>
+            <h3>محصول اول</h3>
+            <p>قیمت: 120,000 تومان</p>
+            <button onclick="addToCart('محصول اول', 120000)">افزودن به سبد</button>
+        </div>
+
+        <div class="card">
+<img src="../Pictures/Camera Roll/WIN_20251008_01_16_08_Pro.jpg" width="300" height="170" alt=""/>
+            
+            <h3>محصول دوم</h3>
+            <p>قیمت: 89,000 تومان</p>
+            <button onclick="addToCart('محصول دوم', 89000)">افزودن به سبد</button>
+			
+			
+      </div>
+
+  </div>
+
+    <div class="cart-box">
+        <h2>سبد خرید</h2>
+        <ul id="cartList"></ul>
+        <h3>جمع کل: <span id="totalPrice">0</span> تومان</h3>
+    </div>
+
+</div>
+
+<script>
+    let total = 0;
+
+    function addToCart(name, price) {
+        const list = document.getElementById("cartList");
+        const li = document.createElement("li");
+        li.textContent = name + " - " + price + " تومان";
+        list.appendChild(li);
+
+        total += price;
+        document.getElementById("totalPrice").textContent = total;
+    }
+</script>
+
+</body>
+</html>
